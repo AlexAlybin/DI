@@ -5,6 +5,7 @@ public class OLXLoginPage
     By email = new By.ById("userEmail");
     By password = new By.ByName("login[password]");
     By loginButton = new By.ById("se_userLogin");
+    By myaccount = new By.ById("topLoginLink");
 
 
     public WebDriver selectWebDriver(String browserName)
@@ -32,5 +33,13 @@ public class OLXLoginPage
         driver.findElement(email).sendKeys("mr.alexalybin@gmail.com");
         driver.findElement(password).sendKeys("alybin159263");
         driver.findElement(loginButton).click();
+    }
+
+    public void logoutFromOLX()
+    {
+        WebElement account = driver.findElement(myaccount);
+        Actions action = new Actions(driver);
+        action.moveToElement(account).build().perform();
+        driver.findElement(By.id("login-box-logout")).click();
     }
 }
