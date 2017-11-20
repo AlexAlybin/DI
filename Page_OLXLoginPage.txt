@@ -1,0 +1,36 @@
+public class OLXLoginPage
+{
+    WebDriver driver;
+
+    By email = new By.ById("userEmail");
+    By password = new By.ByName("login[password]");
+    By loginButton = new By.ById("se_userLogin");
+
+
+    public WebDriver selectWebDriver(String browserName)
+    {
+        if (browserName.equalsIgnoreCase("Chrome"))
+        {
+            driver = new ChromeDriver();
+        }
+        else if (browserName.equalsIgnoreCase("Firefox"))
+        {
+            driver = new FirefoxDriver();
+            System.setProperty("webdriver.gecko.driver", "D:\\IdeaProjects\\geckodriver-v0.19.1-win64");
+        }
+        else
+        {
+            System.out.println("WebDriver was not specified!");
+        }
+        return driver;
+    }
+
+    public void loginToOLX(String url)
+    {
+        driver.manage().window().maximize();
+        driver.get(url);
+        driver.findElement(email).sendKeys("mr.alexalybin@gmail.com");
+        driver.findElement(password).sendKeys("alybin159263");
+        driver.findElement(loginButton).click();
+    }
+}

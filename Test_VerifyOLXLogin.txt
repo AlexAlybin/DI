@@ -1,0 +1,13 @@
+public class VerifyOLXLogin
+{
+    @Test
+    public void checkOLXLogin()
+    {
+        OLXLoginPage loginPage = new OLXLoginPage();
+
+        loginPage.selectWebDriver("firefox");
+
+        loginPage.loginToOLX("https://www.olx.ua/account/?ref%5B0%5D%5Baction%5D=myaccount&ref%5B0%5D%5Bmethod%5D=index");
+    }
+
+}
