@@ -43,3 +43,4 @@ public class OLXLoginPage
         driver.findElement(By.id("login-box-logout")).click();
     }
 }
+}}}}}
